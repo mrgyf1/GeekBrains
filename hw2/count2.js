@@ -26,18 +26,22 @@ while (count <= 100){
     fizz = count%3;
     buzz = count%5;
     if (buzz == 0 && fizz == 0){
-        console.log(count, "Число делится на 3 и 5 без остатка - FizzBuzz")
+        console.log("FizzBuzz"); //Число делится на 3 и 5 без остатка
         count++;
         continue;
     }
-    if (fizz == 0) {
-        console.log(count, "Число делится на 3 без остатка - Fizz")
+    if (fizz == 0){
+        console.log ("Fizz"); // Число делится на 3 без остатка
+        count++;
+        continue;
     }
-    if (buzz == 0) {
-        console.log(count, "Число делится на 5 без остатка - Fizz")
+    if (buzz == 0 && fizz !=0){
+        console.log ("Buzz"); // Число делится на 5 без остатка, но не делится на 3
+        count++;
+        continue;
     }
-    if (buzz != 0 && fizz !=0){
-        console.log (count);
+    else{
+        console.log(count);
     }
     count++;
 }
