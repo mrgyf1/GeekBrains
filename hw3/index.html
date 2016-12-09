@@ -3,7 +3,7 @@
     <meta charset="utf-8">
 </head>
 <body>
-    <script id="Task">
+    <script id="Task"> //Стандартный треугольник
         var i,string;
         string ='';
         for (i=0; i<=7; i++){
@@ -11,7 +11,7 @@
             console.log (string);
         }
     </script>
-    <script id="SuperTask">
+    <script id="SuperTask"> // Треугольник в одну строку
         var string,arr;
         string ='';
         arr =[];
@@ -20,6 +20,28 @@
             arr[i] = string;
         }
         console.log (arr.join('\r\n'));
+    </script>
+    <script id="Chess board"> // Шахматная доска простой вариант перебором
+    var string = "";
+    var symbol = "#";
+    for (var i = 0; i <= 64 - 9; i++) {
+        if (i % 7 == 0) {
+            string += "\n" + symbol;
+        }
+        symbol = (symbol == " ") ? "#" : " ";
+        string += symbol;
+    }
+    console.log(string);
+    </script>
+    <script id="Chess board #2"> // Сложный вариант функциями
+        chessBoard = function(count){
+            var a;
+            return count <= 1 ? ['#']
+                    : (a = chessBoard(count - 1).map(function(s){
+                return s + (s[s.length - 2]||' ');
+            })).concat(a[count - 3] || [' #']);
+        };
+            console.log(chessBoard(8).join('\n'));
     </script>
 </body>
 </html>
