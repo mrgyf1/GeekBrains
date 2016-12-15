@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+        function rgbToHex(r, g, b){
+            sum = r + g + b;
+            if (typeof sum == 'number'){
+                r = (r > 15) ? r.toString(16) : '0' + r.toString(16);
+                g = (g > 15) ? g.toString(16) : '0' + g.toString(16);
+                b = (b > 15) ? b.toString(16) : '0' + b.toString(16);
+                return sum = '#' + (r + g + b).toUpperCase();
+            } else return "Wrong data";
+        }
+        function numToObj(num){
+            var obj = {};
+            if (num <= 999) {
+                num = String(num);
+                obj.единицы = Number(num[num.length - 1]);
+                obj.десятки = Number(num[num.length - 2]);
+                obj.сотни = Number(num[num.length - 3]);
+                return obj;
+            } else {
+                console.log('Out of range');
+                return obj;
+            }
+        }
+        //Костыль полнейший, но ТЗ выполнено
+        function objToJson(obj){
+            var string = JSON.stringify(obj);
+            string = string.replace(/"/g,'');
+            string = string.replace(/:/g,'=');
+            string = string.replace(/,/g,'&');
+            string = string.replace(/{/g,'');
+            string = string.replace(/}/g,'');
+            return string;
+        }
+    </script>
+</body>
+</html>
